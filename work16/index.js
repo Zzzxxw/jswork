@@ -1,15 +1,18 @@
 function $(id) {
     return document.getElementById(id);
 }
+
 $('smallBox').onmouseover = function () {
     $('mask').style.display = 'block';
     $('bigBox').style.display = 'block';
 };
-$('smallBox').onmouseout = function () {
+
+$('smallBox').onmouseou = function () {
     $('mask').style.display = 'none';
     $('bigBox').style.display = 'none';
 };
-$('smallBox').onpointermove =function (event) {
+
+$('smallBox').onmousemove = function (event) {
     var event = event || window.event;
     var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
     var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
@@ -22,7 +25,6 @@ $('smallBox').onpointermove =function (event) {
     }
     if (maskX > $('smallBox').offsetWidth - $('mask').offsetWidth) {
         maskX = $('smallBox').offsetWidth - $('mask').offsetWidth;
-        maskX = $('smallBox').offsetWidth - $('msak').offsetWidth;
     }
     if (maskY < 0) {
         maskY = 0;
@@ -30,7 +32,7 @@ $('smallBox').onpointermove =function (event) {
     if (maskY > $('smallBox').offsetHeight - $('mask').offsetHeight) {
         maskY = $('smallBox').offsetHeight - $('mask').offsetHeight;
     }
-    $('maks').style.left = maskX + 'px';
+    $('mask').style.left = maskX + 'px';
     $('mask').style.top = maskY + 'px';
     var bigImgToMove = $('bigImg').offsetWidth - $('bigBox').offsetWidth;
     var maskToMove = $('smallBox').offsetWidth - $('mask').offsetWidth;
